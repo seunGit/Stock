@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 @Entity
 public class Stock {
@@ -15,6 +16,11 @@ public class Stock {
     private Long productId;
 
     private Long quantity;
+
+    // Optimistic Lock 설정
+    // 버전관리를 통한 락
+    @Version
+    private Long version;
 
     //기본 생성자 추가
     public Stock(){}
